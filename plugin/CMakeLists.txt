@@ -7,7 +7,7 @@ qt_add_plugin(echoplugin
 )
 
 set_target_properties(echoplugin PROPERTIES
-    LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/echowindow"
+    LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}"
 )
 
 target_include_directories(echoplugin PRIVATE
