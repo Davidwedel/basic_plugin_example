@@ -5,6 +5,7 @@
 #define ECHODIALOG_H
 
 #include <QWidget>
+#include <QTimer>
 
 #include "echointerface.h"
 
@@ -23,6 +24,8 @@ class EchoWindow : public QWidget
 
 public:
     EchoWindow();
+
+    QTimer *oneSecondTimer;
 
 private slots:
     void sendEcho();

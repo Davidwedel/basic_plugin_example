@@ -4,7 +4,8 @@
 //! [0]
 QString EchoPlugin::echo(const QString &message)
 {
-    return message;
+    qDebug() << "recd echo";
+    return "hello";
 }
 //! [0]
 

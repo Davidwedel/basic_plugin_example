@@ -16,8 +16,12 @@
 EchoWindow::EchoWindow()
 {
     createGUI();
-    setLayout(layout);
-    setWindowTitle("Echo Plugin Example");
+
+    oneSecondTimer = new QTimer(this);
+    oneSecondTimer->setInterval(1000);
+    connect(oneSecondTimer, &QTimer::timeout, this, &EchoWindow::sendEcho);
+    oneSecondTimer->start();
+
 
     if (!loadPlugin()) {
         QMessageBox::information(this, "Error", "Could not load the plugin");
@@ -30,15 +34,14 @@ EchoWindow::EchoWindow()
 //! [1]
 void EchoWindow::sendEcho()
 {
-    QString text = echoInterface->echo(lineEdit->text());
-    label->setText(text);
+    QString text = echoInterface->echo("blah");
 }
 //! [1]
 
 //! [2]
 void EchoWindow::createGUI()
 {
-    lineEdit = new QLineEdit;
+    /*lineEdit = new QLineEdit;
     label = new QLabel;
     label->setFrameStyle(QFrame::Box | QFrame::Plain);
     button = new QPushButton(tr("Send Message"));
@@ -55,6 +58,7 @@ void EchoWindow::createGUI()
     layout->addWidget(label, 1, 1);
     layout->addWidget(button, 2, 1, Qt::AlignRight);
     layout->setSizeConstraint(QLayout::SetFixedSize);
+*/
 }
 //! [2]
 
