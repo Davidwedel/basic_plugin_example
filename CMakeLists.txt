@@ -16,10 +16,10 @@ qt_standard_project_setup()
 
 # Define the main executable
 qt_add_executable(echopluginwindow
-    echowindow/echointerface.h
-    echowindow/echowindow.cpp
-    echowindow/echowindow.h
-    echowindow/main.cpp
+    echointerface.h
+    echowindow.cpp
+    echowindow.h
+    main.cpp
 )
 
 # Set executable properties

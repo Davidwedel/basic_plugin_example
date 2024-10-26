@@ -6,7 +6,7 @@
 
 #include <QObject>
 #include <QtPlugin>
-#include "echointerface.h"
+#include "../echointerface.h"
 
 //! [0]
 class EchoPlugin : public QObject, EchoInterface
