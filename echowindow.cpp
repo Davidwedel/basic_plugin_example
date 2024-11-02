@@ -35,6 +35,7 @@ EchoWindow::EchoWindow()
 void EchoWindow::sendEcho()
 {
     QString text = echoInterface->echo("blah");
+    qDebug() << text;
 }
 //! [1]
 
