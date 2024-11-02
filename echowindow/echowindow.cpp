@@ -61,7 +61,7 @@ void EchoWindow::createGUI()
 //! [3]
 bool EchoWindow::loadPlugin()
 {
-    QDir pluginsDir(QCoreApplication::applicationDirPath());
+    /*QDir pluginsDir(QCoreApplication::applicationDirPath());
 #if defined(Q_OS_WIN)
     if (pluginsDir.dirName().toLower() == "debug" || pluginsDir.dirName().toLower() == "release")
         pluginsDir.cdUp();
@@ -84,8 +84,20 @@ bool EchoWindow::loadPlugin()
             pluginLoader.unload();
         }
     }
+*/
+    qDebug() << "Loading Plugins";
 
-    return false;
+    const auto staticInstances = QPluginLoader::staticInstances();
+
+    for (QObject *plugin : staticInstances) {
+        QString pluginName = plugin->metaObject()->className();
+        qDebug() << tr("%1 (Static Plugin)").arg(pluginName);
+        if(plugin){
+            echoInterface = qobject_cast<EchoInterface *>(plugin);
+        }
+    }
+
+    return true;
 }
 //! [3]
 

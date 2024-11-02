@@ -4,8 +4,10 @@
 #include <QApplication>
 
 #include "echowindow.h"
-#include "echointerface.h"
 
+#include <QtPlugin>
+
+Q_IMPORT_PLUGIN(EchoPlugin)
 //! [0]
 int main(int argv, char *args[])
 {
