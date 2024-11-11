@@ -8,7 +8,7 @@ qt_add_plugin(p_echoplugin
 )
 
 target_include_directories(p_echoplugin PRIVATE
-    ../echowindow
+    ../
 )
 
 target_link_libraries(p_echoplugin PRIVATE
